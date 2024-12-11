@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31984022093",
+    "project_id": "ta-papb-afd9a",
+    "storage_bucket": "ta-papb-afd9a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31984022093:android:0b706813c144fd2792a204",
+        "android_client_info": {
+          "package_name": "com.example.ta_papb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo5st4ZnCtt1kJSR9gYKxiL3TsSnK2HC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
