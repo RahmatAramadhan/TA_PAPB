@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#121212"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivUserAvatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/avatar"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="10dp" />
+
+    <TextView
+        android:id="@+id/tvPostUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivUserAvatar"
+        android:layout_alignTop="@id/ivUserAvatar"
+        android:text="Precious Girl @Emma - 10h"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvPostContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivUserAvatar"
+        android:layout_below="@id/tvPostUser"
+        android:text="My Boyfriend is so CUTEEEEE @agil"
+        android:paddingBottom="5dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp" />
+
+    <LinearLayout
+        android:id="@+id/llActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvPostContent"
+        android:layout_toEndOf="@id/ivUserAvatar"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/comment" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1906"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:id="@+id/tvLikes"
+            android:layout_marginStart="5dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/retweet"
+            android:layout_marginStart="15dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1249"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:id="@+id/tvComments"
+            android:layout_marginStart="5dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/like"
+            android:layout_marginStart="15dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7461"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:id="@+id/tvShares"
+            android:layout_marginStart="5dp" />
+    </LinearLayout>
+</RelativeLayout>
