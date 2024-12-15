@@ -93,25 +93,19 @@ class Register : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    navigateHome(email)
+                    navigateLogin()
                 } else {
                     showToast("Registration failed: ${task.exception?.message}")
                 }
             }
     }
 
-    private fun navigateHome(email: String) {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            putExtra("USERNAME", email)
-        }
-        startActivity(intent)
-        finish()
-    }
 
     private fun navigateLogin() {
         val intent = Intent(this, Login::class.java).apply {
         }
         startActivity(intent)
+        finish()
     }
 
     private fun showToast(message: String) {
