@@ -28,6 +28,7 @@ public class Profile extends AppCompatActivity {
     private TextView profileName;
     private Button changePhotoButton;
     private Button btnLogout;
+    private Button btnForum;
 
     private FirebaseFirestore firestore;
     private FirebaseStorage storage;
@@ -50,12 +51,17 @@ public class Profile extends AppCompatActivity {
         userId = auth.getCurrentUser().getUid();
 
         btnLogout = findViewById(R.id.logoutButton);
+        btnForum = findViewById(R.id.forumButton);
         profileImage = findViewById(R.id.profileImage);
         profileName = findViewById(R.id.name);
         changePhotoButton = findViewById(R.id.gantiFoto);
 
         btnLogout.setOnClickListener( v -> logoutUser());
         loadProfileData();
+        btnForum.setOnClickListener(v -> {
+                Intent intent = new Intent(Profile.this, Forum.class);
+                startActivity(intent);
+        });
 
         changePhotoButton.setOnClickListener(v -> openImagePicker());
 
