@@ -35,41 +35,24 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:paddingTop="5dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:background="#1E90FF"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
         android:weightSum="4">
 
         <!-- Icons -->
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/home"
-            android:padding="10dp" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/messagechat"
-            android:padding="10dp" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/trophy"
-            android:padding="10dp" />
 
 
         <ImageView
+            android:id="@+id/profilePicture"
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/avatar"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:src="@drawable/avatar" />
     </LinearLayout>
 
 </RelativeLayout>

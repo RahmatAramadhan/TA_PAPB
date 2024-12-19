@@ -1,17 +1,48 @@
 package com.example.ta_papb
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 
 class Forum : AppCompatActivity() {
+
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var storage: FirebaseStorage
+    private lateinit var auth: FirebaseAuth
+
+    private lateinit var profilePicture: ImageView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forum)
+
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+        storage = FirebaseStorage.getInstance()
+
+        profilePicture = findViewById(R.id.profilePicture)
+
+        loadProfilePicture()
+
+        profilePicture.setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
+        }
+
 
         val posts = listOf(
             Post("Precious Girl @Emma", "My Boyfriend is so CUTEEEEE<3 @agil", 1906, 1249, 7461),
@@ -31,9 +62,40 @@ class Forum : AppCompatActivity() {
             Post("Student @StudyGuru", "Passed my exams with flying colors! 📚 #HardWorkPaysOff", 1800, 1400, 700)
         )
 
-
         val recyclerView: RecyclerView = findViewById(R.id.rvPosts)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = PostAdapter(posts)
+    }
+
+
+
+    private fun loadProfilePicture() {
+        val userId = auth.currentUser?.uid
+
+        if (userId == null) {
+            Toast.makeText(this, "Pengguna tidak terautentikasi", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        firestore.collection("users").document(userId).get()
+            .addOnSuccessListener { documentSnapshot ->
+                if (documentSnapshot.exists()) {
+                    val photoPath = documentSnapshot.getString("photoPath")
+
+                    if (!photoPath.isNullOrEmpty()) {
+                        val photoRef: StorageReference = storage.getReference(photoPath)
+                        photoRef.downloadUrl.addOnSuccessListener { uri ->
+                            Picasso.get().load(uri).into(profilePicture)
+                        }.addOnFailureListener {
+                            Toast.makeText(this, "Gagal memuat foto profil", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(this, "Data pengguna tidak ditemukan", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Gagal mengambil data pengguna: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 }

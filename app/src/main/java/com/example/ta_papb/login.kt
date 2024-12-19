@@ -145,7 +145,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun navigateHome(email: String) {
-        val intent = Intent(this, Profile::class.java).apply {
+        val intent = Intent(this, Forum::class.java).apply {
             putExtra("USERNAME", email)
         }
         startActivity(intent)
