@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "31984022093",
-    "project_id": "ta-papb-afd9a",
-    "storage_bucket": "ta-papb-afd9a.firebasestorage.app"
+    "project_number": "449879264880",
+    "project_id": "mpsb-4ed35",
+    "storage_bucket": "mpsb-4ed35.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:31984022093:android:0b706813c144fd2792a204",
+        "mobilesdk_app_id": "1:449879264880:android:3edb293efefe0ed3302eb5",
         "android_client_info": {
           "package_name": "com.example.ta_papb"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBo5st4ZnCtt1kJSR9gYKxiL3TsSnK2HC0"
+          "current_key": "AIzaSyAqkmkhMQJAL3gDvzXpiIoMo8V_Ae_e1NQ"
         }
       ],
       "services": {

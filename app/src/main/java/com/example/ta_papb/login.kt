@@ -36,10 +36,6 @@ class Login : AppCompatActivity() {
         private const val RC_SIGN_IN = 9001
     }
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -149,7 +145,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun navigateHome(email: String) {
-        val intent = Intent(this, MainActivity::class.java).apply {
+        val intent = Intent(this, Profile::class.java).apply {
             putExtra("USERNAME", email)
         }
         startActivity(intent)

@@ -13,8 +13,6 @@
         android:theme="@style/Theme.TAPAPB"
         tools:targetApi="31">
         <activity
-            android:name=".Forum"
-            android:exported="false"/>
         <activity
             android:name=".Register"
             android:exported="false" />
