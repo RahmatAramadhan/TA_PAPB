@@ -27,11 +27,14 @@
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/profileImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/Profile"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/circle"
+                android:src="@drawable/profile"
+                android:scaleType="center" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,6 +64,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/gantiFoto"
                 android:layout_width="340dp"
                 android:layout_height="56dp"
                 android:text="Ganti Foto"
@@ -87,7 +91,7 @@
                         android:id="@+id/badge_xp"
                         android:layout_width="159dp"
                         android:layout_height="128dp"
-                        android:src="@drawable/Badge_XP" />
+                        android:src="@drawable/badge_xp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,7 +107,7 @@
                         android:id="@+id/badge_rank"
                         android:layout_width="159dp"
                         android:layout_height="128dp"
-                        android:src="@drawable/Badge_rank" />
+                        android:src="@drawable/badge_rank" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -157,17 +161,42 @@
                 android:textColor="#A3FF4F"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <!-- Navigasi Bawah -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#A3FF4F"
-        
-         />
 
+        android:background="#A3FF4F"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#000000"
+            android:text="Logout"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/forumButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#000000"
+            android:text="Forum"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
